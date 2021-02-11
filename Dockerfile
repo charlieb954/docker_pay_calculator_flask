@@ -1,9 +1,9 @@
-FROM python:3.8
+FROM python:3.8-alpine
 
 COPY . /app
 
 WORKDIR /app
 
-RUN pip install requirements.txt
+RUN pip install -r requirements.txt
 
-cmd ["python", "app/main.py"]
+CMD ["python", "app/app.py"]
