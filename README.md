@@ -1,7 +1,6 @@
 # docker_flask_app
 
-- install docker and git (sudo yum install docker git)
-- clone repository (git clone url)
-- start the docker daemon (systemctl start docker)
-- build image (docker build -t name .)
-- run docker image on port (docker run -d -p port_number:port_number name)
+- Create Ubuntu VM using VMware
+- Copy vm_setup.sh file to VM and run (bash vm_setup.sh)
+- Clone repository (git clone url)
+- Run the shell script to build and run the image (bash create_image_run_container.sh)
