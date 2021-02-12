@@ -1,3 +1,6 @@
+create jenkins server by using following command in yaml folder
+sudo docker-compose up
+
 source code management = Git
 add repository url
 add jenkins credentials
@@ -13,3 +16,5 @@ add commands:
 	docker run -d -p 80:8080 my_flask
 
 save
+
+
