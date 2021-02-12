@@ -1,13 +1,6 @@
 from flask import Flask, render_template, request, url_for, jsonify, flash
 
-
 app = Flask(__name__)
-
-@app.route('/home')
-@app.route('/')
-def home():
-    hw = "hello world!"
-    return render_template("home.html", hw=hw)
 
 @app.route('/contact')
 def contact():
@@ -45,15 +38,11 @@ def my_form_post():
 
     take_home_year = float(salary_year) - float(tax_year) - float(pension_year) -  float(ni_year)
 
-
     take_home_month = float(salary_month) - float(tax_month) - float(pension_month) -  float(ni_month)
-
 
     take_home_week = float(salary_week) - float(tax_week) - float(pension_week) -  float(ni_week)
 
-
     take_home_day = float(salary_day) - float(tax_day) - float(pension_day) -  float(ni_day)
-
 
     take_home_year = str("%.2f" % take_home_year)
     take_home_month = str("%.2f" % take_home_month)
