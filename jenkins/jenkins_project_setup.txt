@@ -1,0 +1,15 @@
+source code management = Git
+add repository url
+add jenkins credentials
+change branch if required
+
+build triggers = poll scm
+schedule = * * * * * to check every minute
+
+build = execute shell
+add commands:
+	docker build -t my_flask:latest . 
+	docker stop `docker ps | grep python | awk '{print $1}'`
+	docker run -d -p 80:8080 my_flask
+
+save
