@@ -4,8 +4,9 @@ from takehomepay import national_insurance_20, tax_pens_20
 app = Flask(__name__)
 
 @app.route('/')
-def home():
-    return render_template("home.html")
+def home(error=None):
+    return render_template("home.html", 
+                            error=error)
 
 @app.route('/contact')
 def contact():
@@ -13,7 +14,10 @@ def contact():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    salary = int(request.form['salary'])
+    try:
+        salary = int(request.form['salary'])
+    except ValueError:
+        return render_template("home.html", error="Please check your input and try again.") 
     if salary >= 100000:
         return 'This is only programmed for salaries up to 100k.'
         
