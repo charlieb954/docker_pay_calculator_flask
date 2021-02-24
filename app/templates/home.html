@@ -6,6 +6,9 @@
   <main class="px-3">
     <h1>Salary Calculator</h1>
     <p class="lead">Please fill in the sections below and hit Submit.</p>
+    {% if error %}
+      <p>{{ error }}</p>
+    {% endif %}
     <form method="POST">
       <input name="salary" placeholder='Enter salary here (£)'>
       <input name="pension" placeholder='Pension contributions (%)'>
