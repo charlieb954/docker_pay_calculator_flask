@@ -9,10 +9,6 @@ def home(error=None):
     return render_template("home.html", 
                             error=error)
 
-@app.route('/contact')
-def contact():
-    return render_template("contact.html")
-
 @app.route('/', methods=['POST'])
 def my_form_post():
     try:
@@ -42,7 +38,7 @@ def my_form_post():
 
     ni_week = national_insurance_20(salary)
     ni_year = ni_week * 52
-    ni_month = (ni_week*52) / 12
+    ni_month = (ni_week * 52) / 12
     ni_day = ni_week / 7
 
     take_home_year = salary_year - tax_year - pension_year - ni_year
@@ -72,6 +68,10 @@ def my_form_post():
                             take_home_month = thousands_format(take_home_month),
                             take_home_week = thousands_format(take_home_week),
                             take_home_day = thousands_format(take_home_day))
+
+@app.route('/contact')
+def contact():
+    return render_template("contact.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
