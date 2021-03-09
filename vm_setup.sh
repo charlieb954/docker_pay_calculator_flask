@@ -27,3 +27,7 @@ sudo apt install docker-ce -y
 sudo systemctl status docker
 
 sudo apt install net-tools
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
