@@ -1,0 +1,10 @@
+version: '3.5'
+services:
+    website_build:
+        build: .
+        ports:
+        - '80:80'
+    mongodb:
+        image: mongo:latest
+        volumes:
+        - ./mongo_db:/data/db
