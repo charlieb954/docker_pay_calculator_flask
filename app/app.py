@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, url_for, jsonify, flash
 from takehomepay import national_insurance_20, tax_pens_20
 from takehomepay.utils import thousands_format, thousands_to_float
+from metrics import record_metrics
 
 app = Flask(__name__)
 
@@ -11,6 +12,7 @@ def home(error=None):
 
 @app.route('/', methods=['POST'])
 def my_form_post():
+    record_metrics()
     try:
         salary = int(request.form['salary'])
     except ValueError:
@@ -74,4 +76,4 @@ def contact():
     return render_template("contact.html")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0", port=80)
