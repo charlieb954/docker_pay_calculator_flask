@@ -24,12 +24,13 @@ Instructions:
 - Clone repository (git clone url)
 - Run the shell script to build and run the image (bash create_image_run_container.sh)
 - In order to review metrics:
-    - sudo docker exec -it <mongo_container_name> bash
-    - mongo
-    - show dbs
-    - use flask
-    - db.metrics.find()
-    - exit
+    
+        sudo docker exec -it <mongo_container_name> bash
+        mongo
+        show dbs
+        use flask
+        db.metrics.find()
+        exit
 
 Example images:
 ![query](examples/salary_home_small.png)
