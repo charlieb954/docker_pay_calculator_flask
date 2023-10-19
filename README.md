@@ -2,7 +2,7 @@
 
 A Flask web application containerised using Docker that calculates your take home pay for tax year 2020-21 based on salary and pension contributions as a percentage.
 
-Other features include a Mongo database to record the number of times the application has been run as well as a Jenkins server for CICD.
+Other features include a Mongo database to record the number of times the application has been run as well as a Jenkins server for CI/CD.
 
 Repository explained:
 
@@ -14,15 +14,24 @@ Repository explained:
     - app.py: Flask application to run the application
 - jenkins:
     - a jenkins project to explore using and automation server
-- create_image_run_container: bash script to create and run the container
-- quit_remove_containers: bash script to stop and remove the container
-- vm_setup: bash script to install docker and prepare a VM to use this repository.
+- makefile
+    - a file containing common commands with aliases
+- ubuntu_vm_setup: bash script to install docker and prepare a VM to use this repository.
 
-Instructions:
+Instructions to run:
+- Install Docker on your machine
+- Clone this repository and run the following command
+        
+        make docker-run 
+
+Alternatively, to run this on Ubuntu:
 - Create Ubuntu VM using VMware
-- Copy vm_setup.sh file to VM and run (bash vm_setup.sh)
+- Copy vm_setup.sh file to VM and run the following command to set up the environment and install Git/Docker.
+
+    bash vm_setup.sh
+
 - Clone repository (git clone url)
-- Run the shell script to build and run the image (bash create_image_run_container.sh)
+- make docker-run
 - In order to review metrics:
     
         sudo docker exec -it <mongo_container_name> bash
