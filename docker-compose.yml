@@ -3,8 +3,10 @@ services:
     website_build:
         build: .
         ports:
-        - '80:80'
+            - '5001:5001'
     mongodb:
         image: mongo:latest
+        depends_on:
+            - website_build
         volumes:
-        - ./mongo_db:/data/db
+            - ./mongo_db:/data/db
